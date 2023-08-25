@@ -19,13 +19,13 @@ function App() {
       if (!ignore) {
         setUser(result.data);
       }
-    });
+    }).catch(error => console.log(error.message));
     return () => {
       ignore = true;
     };
-  }, []);
+  }, [count]);
 
-  // console.log(user)
+  console.log(user)
 
   return (
     <>
@@ -58,7 +58,7 @@ function App() {
           <div className="card-row">
             <p>ORG</p> <p>{user.org}</p></div>
           <button onClick={() => setCount((count) => count + 1)}>
-            Check VPN
+            Update
           </button>
         </div>}
     </>
