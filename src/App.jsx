@@ -3,11 +3,9 @@ import axios from 'axios';
 import './App.css'
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
-  // const [count, setCount] = useState(0)
   const [user, setUser] = useState()
 
-  // get data
+  // get api data
   const getData = async () => {
     await axios
       .get('https://ipapi.co/json/')
@@ -15,31 +13,18 @@ function App() {
       .catch(err => console.log(err.message))
   }
 
-  // Firing fetch on mount once
+  // fetch on mount once
   useEffect(() => {
     getData()
   }, [])
 
+  // update on click
   const onSubmit = (e) => {
     e.preventDefault()
-    //once clicks on button, update the the useEffect hooks
     getData()
   }
 
-
-  // useEffect(() => {
-  //   let ignore = false;
-  //   axios.get('https://ipapi.co/json/').then(result => {
-  //     if (!ignore) {
-  //       setUser(result.data);
-  //     }
-  //   }).catch(error => console.log(error.message));
-  //   return () => {
-  //     ignore = true;
-  //   };
-  // }, [count]);
-
-  console.log(user)
+  // console.log(user)
 
   return (
     <>
