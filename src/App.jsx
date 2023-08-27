@@ -6,8 +6,8 @@ function App() {
   const [user, setUser] = useState()
 
   // get api data
-  const getData = async () => {
-    await axios
+  const getData = () => {
+    axios
       .get('https://ipapi.co/json/')
       .then(data => setUser(data.data))
       .catch(err => console.log(err.message))
