@@ -6,12 +6,22 @@ function App() {
   const [user, setUser] = useState()
 
   // get api data
-  const getData = () => {
-    axios
-      .get('https://ipapi.co/json/')
-      .then(data => setUser(data.data))
-      .catch(err => console.log(err.message))
-  }
+  // const getData = () => {
+  //   axios
+  //     .get('https://ipapi.co/json/')
+  //     .then(data => setUser(data.data))
+  //     .catch(err => console.log(err.message))
+  // }
+
+  // async version
+  const getData = async () => {
+    try {
+      const res = await axios.get('https://ipapi.co/json/');
+      setUser(res.data)
+    } catch (err) {
+      console.log(err.message)
+    }
+  };
 
   // fetch on mount once
   useEffect(() => {
